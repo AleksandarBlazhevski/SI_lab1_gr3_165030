@@ -1,3 +1,5 @@
+import java.util.List;
+
 class Item {
     int id;
     String name;
@@ -31,3 +33,23 @@ class Item {
         return price*0.15;
     }
 }
+
+
+public class Receipt {
+    List<Item> itemList;
+
+    public void addItem(Item item){
+        itemList.add(item);
+    }
+    public void deleteItem(Item item){
+        itemList.remove(item);
+    }
+    public double iznos(){
+        double suma=0;
+        for (Item i : itemList){
+            suma+=i.getPrice();
+        }
+        return suma;
+    }
+}
+
